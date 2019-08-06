@@ -1,0 +1,13 @@
+language: python
+python:
+  - "3"
+cache: pip
+install:
+  - pip install -r requirements.txt
+script:
+  - make test
+deploy:
+  provider: script
+  script: make deploy
+  on:
+    branch: master
