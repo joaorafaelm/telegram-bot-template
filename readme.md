@@ -16,6 +16,6 @@ make run # `make help` to show all commands
 ```
 <sup>edit the commands in `bot.__main__.py`</sup>
 
-### Deploy
+### deploy
 
-TODO
+...
