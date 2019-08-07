@@ -1,4 +1,4 @@
-.PHONY: all help test clean makemigrations migrate run deploy
+.PHONY: all help test clean migrations migrate run deploy
 
 MANAGER=pipenv run python manage.py
 
