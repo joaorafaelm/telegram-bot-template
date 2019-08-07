@@ -1,6 +1,6 @@
 .PHONY: all help test clean makemigrations migrate run deploy
 
-MANAGER=python manage.py
+MANAGER=pipenv run python manage.py
 
 all: 
 	@echo "try 'make help'"
@@ -9,7 +9,7 @@ help: # show all commands
 	@sed -n 's/:.#/:/p' makefile | grep -v @
 
 test: # run tests
-	pytest -xvv
+	pipenv run pytest -xvv
 
 clean: # clean cached files
 	@find . -name \*.pyc -o -name \*.pyo -o -name __pycache__ -exec rm -rf {} +
@@ -22,7 +22,7 @@ migrate: # apply migrations
 	$(MANAGER) migrate
 
 run: # run bot
-	python -m bot
+	pipenv run python -m bot
 
 deploy: # deploy app
 	git push dokku master

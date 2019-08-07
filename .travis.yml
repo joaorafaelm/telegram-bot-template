@@ -7,7 +7,7 @@ env:
   - TELEGRAM_TOKE=token 
   - DATABASE_URL=sqlite:///:memory:
 install:
-  - pip install -r requirements.txt
+  - pipenv install --dev
 script:
   - make test
 deploy:
