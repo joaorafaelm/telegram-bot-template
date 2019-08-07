@@ -8,10 +8,6 @@
   <hr/>
 </p>
 
-<div class="highlight highlight-source-shell" style="text-align: center;">
-  <pre>cp local.env .env && pipenv install --dev && make run</pre>
-</div>
-
 ```sh
                         cp local.env .env && pipenv install --dev && make run
 ```
