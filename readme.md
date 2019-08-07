@@ -8,13 +8,6 @@
   <hr/>
 </p>
 
-### running
-```console
-cp local.env .env
-pipenv install --dev
-make run # `make help` to show all commands
+```sh
+                        cp local.env .env && pipenv install --dev && make run
 ```
-
-### deploy
-
-...
