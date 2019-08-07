@@ -1,0 +1,21 @@
+# <p align="center">bot
+  
+<p align="center">
+  telegram bot template<br><br>
+  <a href="https://travis-ci.org/joaorafaelm/markov-bot"><img src="https://travis-ci.org/joaorafaelm/markov-bot.svg?branch=master"></a>
+  <a href="https://pyup.io/repos/github/joaorafaelm/markov-bot/"><img src="https://pyup.io/repos/github/joaorafaelm/markov-bot/shield.svg"></a>
+  </a>
+  <hr/>
+</p>
+
+### Running
+```console
+git clone https://github.com/joaorafaelm/telegram-bot-template bot && cd bot
+cp local.env .env
+pipenv install --dev
+make run # run `make help` to show all commands
+```
+
+### Deploy
+
+TODO
