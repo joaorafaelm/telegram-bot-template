@@ -2,6 +2,10 @@ language: python
 python:
   - "3"
 cache: pip
+env:
+  - DISABLE_COLLECTSTATIC=1 
+  - TELEGRAM_TOKE=token 
+  - DATABASE_URL=sqlite:///:memory:
 install:
   - pip install -r requirements.txt
 script:

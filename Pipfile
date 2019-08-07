@@ -8,6 +8,7 @@ django = "*"
 dj-database-url = "*"
 python-decouple = "*"
 pytelegrambotapi = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 ipdb = "*"
