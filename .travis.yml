@@ -5,7 +5,7 @@ cache: pip
 env:
   global:
     - DISABLE_COLLECTSTATIC=1 
-    - TELEGRAM_TOKE=token 
+    - TELEGRAM_TOKEN=token 
     - DATABASE_URL=sqlite:///:memory:
 install:
   - pipenv install --dev
