@@ -14,7 +14,6 @@ cp local.env .env
 pipenv install --dev
 make run # `make help` to show all commands
 ```
-<sup>edit the commands in `bot.__main__.py`</sup>
 
 ### deploy
 
