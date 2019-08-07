@@ -1,0 +1,7 @@
+{
+  "name": "my bot",
+  "dokku":{
+    "plugins":[
+      "postgres"
+    ]
+}
