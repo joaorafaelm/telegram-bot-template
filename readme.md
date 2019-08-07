@@ -13,7 +13,7 @@
 git clone https://github.com/joaorafaelm/telegram-bot-template bot && cd bot
 cp local.env .env
 pipenv install --dev
-make run # run `make help` to show all commands
+make run # `make help` to show all commands
 ```
 
 ### Deploy
