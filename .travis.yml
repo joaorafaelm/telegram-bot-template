@@ -11,8 +11,3 @@ install:
   - pipenv install --dev
 script:
   - make test
-deploy:
-  provider: script
-  script: make deploy
-  on:
-    branch: master
