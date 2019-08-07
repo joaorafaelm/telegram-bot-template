@@ -3,9 +3,10 @@ python:
   - "3.7"
 cache: pip
 env:
-  - DISABLE_COLLECTSTATIC=1 
-  - TELEGRAM_TOKE=token 
-  - DATABASE_URL=sqlite:///:memory:
+  global:
+    - DISABLE_COLLECTSTATIC=1 
+    - TELEGRAM_TOKE=token 
+    - DATABASE_URL=sqlite:///:memory:
 install:
   - pipenv install --dev
 script:
