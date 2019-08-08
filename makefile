@@ -23,7 +23,3 @@ migrate: # apply migrations
 
 run: # run bot
 	pipenv run python -m bot
-
-deploy: # deploy app
-	@git remote add dokku dokku@dokku.ga:bot-template > /dev/null 2>&1 ||:
-	git push dokku master
