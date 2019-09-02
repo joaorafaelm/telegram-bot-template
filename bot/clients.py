@@ -1,4 +1,4 @@
 import telebot
-from bot.settings import TELEGRAM_TOKEN
+from bot.settings import config
 
-bot = telebot.TeleBot(TELEGRAM_TOKEN)
+bot = telebot.TeleBot(config.TELEGRAM_TOKEN)

@@ -20,5 +20,4 @@ class Conf(BaseSettings):
         env_prefix = ''
 
 
-# expose attributes to module scope for django compatibility
-*map(lambda x: setattr(sys.modules[__name__], *x), Conf().dict().items()),
+config = Conf()
