@@ -5,7 +5,8 @@ import django
 from bot import settings
 
 # expose attributes to module scope to maintain django compatibility
-*map(lambda x: setattr(settings, *x), settings.config.dict().items()),
+for setting in settings.config.dict().items():
+    setattr(settings, *setting)
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bot.settings")
 django.setup()
