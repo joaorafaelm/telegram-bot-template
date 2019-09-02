@@ -1,7 +1,3 @@
-import logging
-import os
-import sys
-
 import dj_database_url
 
 from pydantic import BaseSettings, PyObject
