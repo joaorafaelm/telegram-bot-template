@@ -8,7 +8,6 @@ from pydantic import BaseSettings, PyObject
 
 
 class Conf(BaseSettings):
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     DEBUG: bool = False
     DATABASES = {"default": dj_database_url.config()}
     INSTALLED_APPS = ("bot",)
