@@ -6,9 +6,9 @@ verify_ssl = true
 [packages]
 django = "*"
 dj-database-url = "*"
-python-decouple = "*"
 pytelegrambotapi = "*"
 psycopg2-binary = "*"
+pydantic = "*"
 
 [dev-packages]
 ipdb = "*"
