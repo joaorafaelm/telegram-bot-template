@@ -12,7 +12,7 @@ class Conf(BaseSettings):
     TELEGRAM_TOKEN: str = ...
 
     class Config:
-        env_prefix = ''
+        env_prefix = ""
 
 
 config = Conf()
