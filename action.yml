@@ -1,0 +1,16 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Github Action Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: joaorafaelm/telegram-bot-template@master
+    - name: Run build
+      env:
+        DISABLE_COLLECTSTATIC: 1
+        TELEGRAM_TOKEN: token
+        DATABASE_URL: sqlite:///:memory:
+      run: pipenv install --dev; make test
