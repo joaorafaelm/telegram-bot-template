@@ -11,7 +11,3 @@
 ```sh
                         cp local.env .env && pipenv install --dev && make run
 ```
-
-<p align="center">
-https://colab.research.google.com/drive/19Eo-ZvrSOlpLreNBhetBUj49QJkNIdwt
-</p>
