@@ -264,10 +264,10 @@
         },
         "prompt-toolkit": {
             "hashes": [
-                "sha256:0278d2f51b5ceba6ea8da39f76d15684e84c996b325475f6e5720edc584326a7",
-                "sha256:63daee79aa8366c8f1c637f1a4876b890da5fc92a19ebd2f7080ebacb901e990"
+                "sha256:859e1b205b6cf6a51fa57fa34202e45365cf58f8338f0ee9f4e84a4165b37d5b",
+                "sha256:ebe6b1b08c888b84c50d7f93dee21a09af39860144ff6130aadbd61ae8d29783"
             ],
-            "version": "==3.0.2"
+            "version": "==3.0.4"
         },
         "ptyprocess": {
             "hashes": [
