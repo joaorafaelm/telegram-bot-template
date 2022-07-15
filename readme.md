@@ -1,13 +1,7 @@
-# <p align="center">bot
-  
-<p align="center">
-  <br>
-  <a href="https://travis-ci.org/joaorafaelm/telegram-bot-template"><img src="https://travis-ci.org/joaorafaelm/telegram-bot-template.svg?branch=master"></a>
-  <a href="https://pyup.io/repos/github/joaorafaelm/telegram-bot-template/"><img src="https://pyup.io/repos/github/joaorafaelm/telegram-bot-template/shield.svg"></a>
-  </a>
-  <hr/>
-</p>
+[![](https://travis-ci.org/joaorafaelm/telegram-bot-template.svg?branch=master)](https://travis-ci.org/joaorafaelm/telegram-bot-template) [![](https://pyup.io/repos/github/joaorafaelm/telegram-bot-template/shield.svg)](https://pyup.io/repos/github/joaorafaelm/telegram-bot-template/)
+
+* * *
 
 ```sh
-                        cp local.env .env && pipenv install --dev && make run
+cp local.env .env && pipenv install --dev && make run
 ```
