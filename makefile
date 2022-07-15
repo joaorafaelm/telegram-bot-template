@@ -9,7 +9,7 @@ help: # show all commands
 	@sed -n 's/:.#/:/p' makefile | grep -v @
 
 test: # run tests
-	pipenv run pytest -xvv
+	pipenv run pytest
 
 clean: # clean cached files
 	@find . -name \*.pyc -o -name \*.pyo -o -name __pycache__ -exec rm -rf {} +
