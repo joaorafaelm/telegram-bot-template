@@ -10,6 +10,7 @@ class Conf(BaseSettings):
     SECRET_KEY: str = "secret"
     LOG_LEVEL: PyObject = "logging.INFO"
     TELEGRAM_TOKEN: str = ...
+    USE_TZ: bool = True
 
 
 config = Conf()
