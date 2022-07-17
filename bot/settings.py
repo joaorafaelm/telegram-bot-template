@@ -11,8 +11,5 @@ class Conf(BaseSettings):
     LOG_LEVEL: PyObject = "logging.INFO"
     TELEGRAM_TOKEN: str = ...
 
-    class Config:
-        env_prefix = ""
-
 
 config = Conf()
