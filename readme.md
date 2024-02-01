@@ -1,3 +1,3 @@
 ```sh
-cp local.env .env && pipenv install --dev && make test
+cp local.env .env && make install && make test
 ```

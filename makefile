@@ -1,15 +1,32 @@
 .PHONY: all help test clean migrations migrate run deploy
+.ONESHELL:
 
-MANAGER=pipenv run python manage.py
+-include .env
+export
 
-all: 
-	@echo "try 'make help'"
+VENV=.venv/bin/
+MANAGER=$(VENV)python manage.py
+
+all: help
 
 help: # show all commands
 	@sed -n 's/:.#/:/p' makefile | grep -v @
 
+venv: # create virtual environment
+	@python3 -m venv .venv
+
+install: venv # install dependencies
+	$(VENV)pip install -r requirements.txt
+
+lock: venv # lock and update dependencies
+	@sed -i '' 's/[~=]=/>=/' requirements.txt
+	@$(VENV)pip install -U -r requirements.txt -q
+	@$(VENV)pip freeze -r requirements.txt | awk '/.*pip freeze.*/ {exit} {print}' > requirements-lock.txt
+	@sed -i '' 's/==/~=/' requirements-lock.txt
+	@mv requirements-lock.txt requirements.txt
+
 test: # run tests
-	pipenv run pytest
+	@$(VENV)pytest
 
 clean: # clean cached files
 	@find . -name \*.pyc -o -name \*.pyo -o -name __pycache__ -exec rm -rf {} +
@@ -22,4 +39,4 @@ migrate: # apply migrations
 	$(MANAGER) migrate
 
 run: # run bot
-	pipenv run python -m bot
+	$(VENV)python -m bot
