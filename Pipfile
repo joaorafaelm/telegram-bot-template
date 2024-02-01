@@ -9,6 +9,7 @@ dj-database-url = "*"
 pytelegrambotapi = "*"
 psycopg2-binary = "*"
 pydantic = "*"
+pydantic-settings = "*"
 
 [dev-packages]
 ipdb = "*"
@@ -18,4 +19,4 @@ pytest = "*"
 pytest-cov = "*"
 
 [requires]
-python_version = "3.10"
+python_version = "3.11"
