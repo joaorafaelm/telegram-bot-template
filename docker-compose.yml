@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  worker:
+    build: .
+    volumes:
+      - ./database:/app/database
+    environment:
+      - DATABASE_URL=sqlite:////app/database/main.db

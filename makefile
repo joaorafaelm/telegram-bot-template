@@ -40,4 +40,4 @@ migrate: # apply migrations
 	$(MANAGER) migrate
 
 run: # run bot
-	$(VENV)python -m bot
+	@$(VENV)honcho start
