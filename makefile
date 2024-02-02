@@ -14,11 +14,12 @@ help: # show all commands
 
 venv: # create virtual environment
 	@python3 -m venv .venv
+	@$(VENV)pip install -U pip -q
 
 install: venv # install dependencies
-	$(VENV)pip install -r requirements.txt
+	@$(VENV)pip install -r requirements.txt -q
 
-lock: venv # lock and update dependencies
+update: venv # update dependencies
 	@sed -i '' 's/[~=]=/>=/' requirements.txt
 	@$(VENV)pip install -U -r requirements.txt -q
 	@$(VENV)pip freeze -r requirements.txt | awk '/.*pip freeze.*/ {exit} {print}' > requirements-lock.txt

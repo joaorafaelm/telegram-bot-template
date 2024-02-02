@@ -16,6 +16,5 @@ jobs:
         TELEGRAM_TOKEN: token
         DATABASE_URL: "sqlite:///:memory:"
       run: |
-        python -m pip install --upgrade pip
         make install
         make test
