@@ -12,6 +12,7 @@ def start(message):
 
 @bot.message_handler(func=lambda x: x)
 def messages(message):
+    logger.info(f"message: {message.text}")
     bot.send_message(message.chat.id, message.text)
 
 
