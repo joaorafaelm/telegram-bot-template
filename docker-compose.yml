@@ -3,6 +3,8 @@ version: '3'
 services:
   worker:
     build: .
+    image: bot
+    pull_policy: build
     volumes:
       - ./database:/app/database
     environment:
