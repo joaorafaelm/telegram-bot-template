@@ -7,5 +7,3 @@ python manage.py migrate
 # run honcho
 echo "Run honcho"
 honcho start
-
-exec "$@"
