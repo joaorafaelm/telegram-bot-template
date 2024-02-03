@@ -4,6 +4,7 @@ services:
   worker:
     build: .
     image: bot
+    restart: unless-stopped
     pull_policy: build
     volumes:
       - ./database:/app/database
