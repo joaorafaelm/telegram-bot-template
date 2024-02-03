@@ -9,3 +9,4 @@ services:
       - ./database:/app/database
     environment:
       - DATABASE_URL=sqlite:////app/database/main.db
+      - TELEGRAM_TOKEN=$TELEGRAM_TOKEN
