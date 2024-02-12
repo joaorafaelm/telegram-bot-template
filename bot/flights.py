@@ -23,7 +23,7 @@ os.environ['WDM_SSL_VERIFY'] = '0'
 class Browser(WebBotBrowser):
     def __init__(self, showWindow=True):
         options = webdriver.ChromeOptions()
-        options.page_load_strategy = 'eager'
+        # options.page_load_strategy = 'eager'
         options.add_argument('--disk-cache-dir=/tmp/selenium')
         options.add_argument("user-data-dir=/tmp/selenium")
         options.add_experimental_option(
@@ -128,7 +128,7 @@ def parse_explore_flights(text):
         data.append({
             "destination": destination,
             "price": price,
-            "date": date,
+            "date": date.replace("\u2009", " "),
             "stops": stops
         })
     data = sorted(data, key=lambda x: x['price'])
@@ -197,7 +197,7 @@ def get_explore_flights(query="flights from CWB to anywhere, 2-week trip in the 
     logging.info(f"Going to {url}")
     web.go_to(url)
 
-    sleep(5)
+    sleep(30)
     html = web.get_page_source()
     logging.info("Parsing flights")
     return parse_explore_flights(html)
