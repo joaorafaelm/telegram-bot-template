@@ -19,11 +19,12 @@ venv: # create virtual environment
 install: venv # install dependencies
 	@$(VENV)pip install -r requirements.txt -q
 
-update: venv # update dependencies
+lock: venv # update dependencies
 	@sed -i '' 's/[~=]=/>=/' requirements.txt
-	@$(VENV)pip install -U -r requirements.txt -q
+	@$(VENV)pip install -U -r requirements.txt
 	@$(VENV)pip freeze -r requirements.txt | awk '/.*pip freeze.*/ {exit} {print}' > requirements-lock.txt
 	@sed -i '' 's/==/~=/' requirements-lock.txt
+	@sort -o requirements-lock.txt requirements-lock.txt
 	@mv requirements-lock.txt requirements.txt
 
 test: # run tests

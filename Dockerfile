@@ -1,6 +1,12 @@
 FROM python:3.11
-RUN apt-get update
-RUN apt-get install libpq-dev --assume-yes
+
+ENV PYTHONWARNINGS="ignore"
+
+RUN apt-get -y update
+RUN apt-get install -y libpq-dev
+
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
 
 WORKDIR /app
 

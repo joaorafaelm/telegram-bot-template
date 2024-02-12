@@ -8,6 +8,7 @@ services:
     pull_policy: build
     volumes:
       - ./database:/app/database
+      - ./.wdm:/app/.wdm
     environment:
       - DATABASE_URL=sqlite:////app/database/main.db
       - TELEGRAM_TOKEN=$TELEGRAM_TOKEN
