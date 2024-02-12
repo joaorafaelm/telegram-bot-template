@@ -39,6 +39,7 @@ class Browser(WebBotBrowser):
         options.add_argument("--disable-gpu")
         options.add_argument("--disable-dev-shm-usage")
         options.add_argument("--no-sandbox")
+        options.add_argument('--blink-settings=imagesEnabled=false')
 
         if not showWindow:
             options.headless = True
@@ -112,6 +113,27 @@ class Browser(WebBotBrowser):
 
 
 
+def parse_explore_flights(text):
+    selector = Selector(text=text)
+    flights = selector.xpath('//div[contains(text(), "About these results")]/following-sibling::ol/li')
+    data = []
+    for flight in flights:
+        destination = flight.xpath('.//h3/text()').get()
+        date = flight.xpath('.//h3/following-sibling::div[1]/text()').get()
+        stops = flight.xpath('.//h3/following-sibling::div[2]/span[1]/text()').get()
+        price = flight.xpath('.//span[contains(@aria-label, "Brazilian reals")]/text()').get()
+        if not price:
+            continue
+        price = float(price.replace('R$', '').replace(',', ''))
+        data.append({
+            "destination": destination,
+            "price": price,
+            "date": date,
+            "stops": stops
+        })
+    data = sorted(data, key=lambda x: x['price'])
+    return data
+
 
 def parse_flights(text):
     selector = Selector(text=text)
@@ -146,7 +168,7 @@ def parse_flights(text):
 
 @lru_cache()
 def get_browser():
-    return Browser(showWindow=True)
+    return Browser(showWindow=False)
 
 
 def get_flights(query="flights to GRU from CWB on 01-10-2024 through 25-10-2024 2 seats"):
@@ -174,17 +196,20 @@ def get_explore_flights(query="flights from CWB to anywhere, 2-week trip in the 
     url = f"https://www.google.com/travel/explore?q={query}"
     logging.info(f"Going to {url}")
     web.go_to(url)
-    logging.info("Waiting for page to load")
-    breakpoint()
+
+    sleep(5)
+    html = web.get_page_source()
+    logging.info("Parsing flights")
+    return parse_explore_flights(html)
 
 
 if __name__ == "__main__":
-    flights = get_flights()
-    # while True:
-    #     try:
-    #         flights = get_flights()
-    #         logging.info(len(flights))
-    #         logging.info(flights)
-    #     except Exception as e:
-    #         logging.error(e)
-    #     sleep(10)
+    while True:
+        try:
+            # flights = get_flights()
+            flights = get_explore_flights()
+            logging.info(len(flights))
+            logging.info(flights)
+        except Exception as e:
+            logging.error(e)
+        sleep(10)
