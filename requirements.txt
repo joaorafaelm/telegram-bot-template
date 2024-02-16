@@ -6,7 +6,7 @@ ipdb~=0.13.13
 mock~=5.1.0
 parsel~=1.8.1
 pyTelegramBotAPI~=4.15.4
-pydantic-settings~=2.1.0
+pydantic-settings==2.2.0
 pydantic~=2.6.1
 pytest-cov~=4.1.0
 pytest-django~=4.8.0
